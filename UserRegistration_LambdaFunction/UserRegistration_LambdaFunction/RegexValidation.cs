@@ -13,7 +13,8 @@ namespace UserRegistration_LambdaFunction
         const string LASTNAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
         const string EMAIL_PATTEREN = "^[a-zA-Z0-9]+([.#_$+-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
         const string PHONE_NUMBER_PATTEREN = "^[0-9]{2}[ ][0-9]{10}$";
-
+        const string PASSWORD_PATTEREN = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-])[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$";
+        
         ///UC1 : method to check firstname with exception handling
         public string FirstnameCheck(string firstName)
         {
@@ -92,6 +93,28 @@ namespace UserRegistration_LambdaFunction
                     return "phno is Validated";
                 else
                     throw new RegexCustomException(RegexCustomException.InvalidUserdetails.INVALID_PHONE_NO, "Phone Number Should Have 10 digits and First digits Must starts from [6..9] and [+91 ] is for optional Mobile Format - E.g. 91 6919819801 - Country code follow by space and 10 digit number");
+            }
+            catch (RegexCustomException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
+        ////UC5 : method to check password with exception handling
+        public string PasswordCheck(string password)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(password))
+                    throw new RegexCustomException(RegexCustomException.InvalidUserdetails.EMPTY_PASSWORD, "Password Could not be Empty or null");
+                if (Regex.IsMatch(password, PASSWORD_PATTEREN))
+                    Console.WriteLine("password is Validated");
+                else
+                    throw new RegexCustomException(RegexCustomException.InvalidUserdetails.INVALID_PASSWORD, "Password Have minimum 8 Characters");
             }
             catch (RegexCustomException e)
             {
