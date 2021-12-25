@@ -124,8 +124,5 @@ namespace RegexTestCases
                 Assert.AreEqual("Password Have minimum 8 Characters, Should have at least 1 Upper Case and Should have at least 1 numeric number and Has exactly 1 Special Character", ex.Message);
             }
         }
-
-
-
     }
 }

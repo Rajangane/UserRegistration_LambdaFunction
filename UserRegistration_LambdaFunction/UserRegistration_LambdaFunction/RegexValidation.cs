@@ -126,6 +126,13 @@ namespace UserRegistration_LambdaFunction
             }
             return null;
         }
-
+        //Lambda Expression for validation check
+        public string LambdaExpressionFirstnameCheck(string firstName) => Regex.IsMatch(firstName, FIRSTNAME_PATTERN) ? "firstName is Validated" : "firstName is not Validated";
+        public string LambdaExpressionLastnameCheck(string lastName) => Regex.IsMatch(lastName, LASTNAME_PATTERN) ? "lastName is Validated" : "lastName is not Validated";
+        public string LambdaExpressionEmailCheck(string email) => Regex.IsMatch(email, EMAIL_PATTEREN) ? "email is Validated" : "email is not Validated";
+        public string LambdaExpressionPhoneNumberCheck(string phno) => Regex.IsMatch(phno, PHONE_NUMBER_PATTEREN) ? "phno is Validated" : "phno is not Validated";
+        public string LambdaExpressionpasswordCheck(string password) => Regex.IsMatch(password, PASSWORD_PATTEREN) ? "password is Validated" : "password is not Validated";
     }
+
 }
+

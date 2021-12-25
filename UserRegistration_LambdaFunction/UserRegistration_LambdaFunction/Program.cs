@@ -5,7 +5,7 @@ bool isExit = false;
 int options;
 while (!isExit)
 {
-    Console.WriteLine("Select Number\n1).FirstNameValidate\n2).LastNameValidate\n3).EmailValidate\n4)PhoneValidate\n5)PasswordValidate");
+    Console.WriteLine("Select Number\n1).FirstNameValidate\n2).LastNameValidate\n3).EmailValidate\n4)PhoneValidate\n5)PasswordValidate\n6)LambaExpressionToValidateUserDetails");
     options = Convert.ToInt32(Console.ReadLine());
     RegexValidation regularExpression = new RegexValidation();
 
@@ -40,8 +40,31 @@ while (!isExit)
             string password = Console.ReadLine();
             regularExpression.PasswordCheck(password);
             break;
-        
-            default:
+        case 6:
+           
+            Console.WriteLine("enter firstname");
+            string firstName1 = Console.ReadLine();
+            string output1 = regularExpression.LambdaExpressionFirstnameCheck(firstName1);
+            Console.WriteLine(output1);
+            Console.WriteLine("enter lastname");
+            string lastName1 = Console.ReadLine();
+            string output2 = regularExpression.LambdaExpressionLastnameCheck(lastName1);
+            Console.WriteLine(output2);
+            Console.WriteLine("enter email");
+            string email1 = Console.ReadLine();
+            string output3 = regularExpression.LambdaExpressionEmailCheck(email1);
+            Console.WriteLine(output3);
+            Console.WriteLine("enter phno");
+            string phno1 = Console.ReadLine();
+            string output4 = regularExpression.LambdaExpressionPhoneNumberCheck(phno1);
+            Console.WriteLine(output4);
+            Console.WriteLine("enter password");
+            string password1 = Console.ReadLine();
+            string output5 = regularExpression.LambdaExpressionpasswordCheck(password1);
+            Console.WriteLine(output5);
+            break;
+
+        default:
             Console.WriteLine("Invalid Option");
             break;
     }
