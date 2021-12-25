@@ -25,6 +25,13 @@ namespace RegexTestCases
             string actual = regex.LastNameCheck("Rajangane");
             Assert.AreEqual("Last Name Validated", actual);
         }
+        //Email Validation
+        [TestMethod]
+        public void Check_Email_Validate()
+        {
+            string actual = regex.EmailCheck("pratiksha@gmail.com");
+            Assert.AreEqual("email is Validated", actual);
+        }
 
     }
 }
