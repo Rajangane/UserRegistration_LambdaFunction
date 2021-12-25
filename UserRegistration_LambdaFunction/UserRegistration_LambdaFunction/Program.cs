@@ -5,7 +5,7 @@ bool isExit = false;
 int options;
 while (!isExit)
 {
-    Console.WriteLine("Select Number\n1).FirstNameValidate\n2).LastNameValidate\n3).EmailValidate");
+    Console.WriteLine("Select Number\n1).FirstNameValidate\n2).LastNameValidate\n3).EmailValidate\n4)PhoneValidate");
     options = Convert.ToInt32(Console.ReadLine());
     RegexValidation regularExpression = new RegexValidation();
 
@@ -27,6 +27,12 @@ while (!isExit)
             string email = Console.ReadLine();
             string result1 = regularExpression.EmailCheck(email);
             Console.WriteLine(result1);
+            break;
+        case 4:
+            Console.WriteLine("enter phno");
+            string phno = Console.ReadLine();
+            string result2 = regularExpression.PhoneCheck(phno);
+            Console.WriteLine(result2);
             break;
 
         default:

@@ -12,6 +12,7 @@ namespace UserRegistration_LambdaFunction
         const string FIRSTNAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
         const string LASTNAME_PATTERN = "^[A-Z]{1}[a-z]{2,}$";
         const string EMAIL_PATTEREN = "^[a-zA-Z0-9]+([.#_$+-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2})?$";
+        const string PHONE_NUMBER_PATTEREN = "^[0-9]{2}[ ][0-9]{10}$";
 
         ///UC1 : method to check firstname with exception handling
         public string FirstnameCheck(string firstName)
@@ -69,6 +70,28 @@ namespace UserRegistration_LambdaFunction
                     return "email is Validated";
                 else
                     throw new RegexCustomException(RegexCustomException.InvalidUserdetails.INVALID_EMAIL, "E.g. abc.xyz@bl.co.in - Email has 3 mandatory parts (abc, bl & co) and 2 optional(xyz & in) with precise @ and.positions");
+            }
+            catch (RegexCustomException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
+        ////UC4 :  method to check Phonenumber with exception handling
+        public string PhoneCheck(string phno)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(phno))
+                    throw new RegexCustomException(RegexCustomException.InvalidUserdetails.EMPTY_PHONE_NO, "Phone Number Could not be Empty or null");
+                if (Regex.IsMatch(phno, PHONE_NUMBER_PATTEREN))
+                    return "phno is Validated";
+                else
+                    throw new RegexCustomException(RegexCustomException.InvalidUserdetails.INVALID_PHONE_NO, "Phone Number Should Have 10 digits and First digits Must starts from [6..9] and [+91 ] is for optional Mobile Format - E.g. 91 6919819801 - Country code follow by space and 10 digit number");
             }
             catch (RegexCustomException e)
             {

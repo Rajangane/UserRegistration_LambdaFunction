@@ -32,6 +32,12 @@ namespace RegexTestCases
             string actual = regex.EmailCheck("pratiksha@gmail.com");
             Assert.AreEqual("email is Validated", actual);
         }
+        [TestMethod]
+        public void Check_Phno_Validate()
+        {
+            string actual = regex.PhoneCheck("91 6360000028");
+            Assert.AreEqual("phno is Validated", actual);
+        }
 
     }
 }
