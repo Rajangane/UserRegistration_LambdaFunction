@@ -17,5 +17,14 @@ namespace RegexTestCases
             string actual = regex.FirstnameCheck("Pratiksha");
             Assert.AreEqual("First Name Validated", actual);
         }
+        
+        [TestMethod]
+        //Last Name Validation
+        public void Check_LastName_Validate()
+        {
+            string actual = regex.LastNameCheck("Rajangane");
+            Assert.AreEqual("Last Name Validated", actual);
+        }
+
     }
 }
