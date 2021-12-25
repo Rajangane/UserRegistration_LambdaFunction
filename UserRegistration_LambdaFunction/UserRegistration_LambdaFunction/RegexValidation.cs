@@ -38,7 +38,7 @@ namespace UserRegistration_LambdaFunction
             return null;
         }
 
-        ////UC2 : method to check lastname with exception handling
+        ///UC2 : method to check lastname with exception handling
         public string LastNameCheck(string lastName)
         {
             try
@@ -60,7 +60,7 @@ namespace UserRegistration_LambdaFunction
             }
             return null;
         }
-        ////UC3 : method to check email id with exception handling
+        ///UC3 : method to check email id with exception handling
         public string EmailCheck(string email)
         {
             try
@@ -82,7 +82,7 @@ namespace UserRegistration_LambdaFunction
             }
             return null;
         }
-        ////UC4 :  method to check Phonenumber with exception handling
+        ///UC4 :  method to check Phonenumber with exception handling
         public string PhoneCheck(string phno)
         {
             try
@@ -104,7 +104,7 @@ namespace UserRegistration_LambdaFunction
             }
             return null;
         }
-        ////UC5 : method to check password with exception handling
+        ///UC5 : method to check password with exception handling
         public string PasswordCheck(string password)
         {
             try
